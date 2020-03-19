@@ -13,6 +13,16 @@
             <v-list-item-title>Calendar</v-list-item-title>
           </v-list-item-content>
         </v-list-item>
+
+        <v-list-item link to="/all-events">
+          <v-list-item-action>
+            <v-icon>mdi-view-list</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>All events</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+
         <v-list-item link to="/submit-event">
           <v-list-item-action>
             <v-icon>mdi-calendar-plus</v-icon>
