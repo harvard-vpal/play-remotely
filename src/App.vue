@@ -1,6 +1,6 @@
 <template>
   <v-app id="inspire">
-    <v-navigation-drawer
+<!--     <v-navigation-drawer
       v-model="drawer"
       app
     >
@@ -32,20 +32,45 @@
           </v-list-item-content>
         </v-list-item>
       </v-list>
-    </v-navigation-drawer>
+    </v-navigation-drawer> -->
 
     <v-app-bar
       app
       color="red darken-4"
       dark
     >
-      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
       <v-toolbar-title>Play Remotely</v-toolbar-title>
     </v-app-bar>
 
     <v-content>
       <v-container fluid>
-        <v-row align="start" justify="center">
+        <v-row class="mb-4">
+          <v-col>
+            <div class="d-flex align-center">
+              <div>
+                <v-btn-toggle borderless>
+                  <v-btn value="calendar" to="/">
+                    <span>Calendar</span>
+                    <v-icon right>mdi-calendar-month</v-icon>
+                  </v-btn>
+
+                  <v-btn value="list" to="/all-events">
+                    <span>All events</span>
+                    <v-icon right>mdi-view-list</v-icon>
+                  </v-btn>
+                </v-btn-toggle>
+              </div>
+
+              <div class="ml-auto">
+                <v-btn to="/submit-event" color="primary">
+                  <v-icon left>mdi-calendar-plus</v-icon> Submit event
+                </v-btn>
+              </div>
+            </div>
+          </v-col>
+        </v-row>
+
+        <v-row>
           <v-col>
             <router-view />
           </v-col>
@@ -65,7 +90,6 @@
 <script>
   export default {
     data: () => ({
-      drawer: null,
-    }),
+    })
   }
 </script>
