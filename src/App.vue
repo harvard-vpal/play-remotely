@@ -1,28 +1,61 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png" />
-    <HelloWorld msg="Welcome to Your Vue.js App" />
-  </div>
+  <v-app id="inspire">
+    <v-navigation-drawer
+      v-model="drawer"
+      app
+    >
+      <v-list dense>
+        <v-list-item link to="/">
+          <v-list-item-action>
+            <v-icon>mdi-calendar-month</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Calendar</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+        <v-list-item link to="/submit-event">
+          <v-list-item-action>
+            <v-icon>mdi-calendar-plus</v-icon>
+          </v-list-item-action>
+          <v-list-item-content>
+            <v-list-item-title>Submit event</v-list-item-title>
+          </v-list-item-content>
+        </v-list-item>
+      </v-list>
+    </v-navigation-drawer>
+
+    <v-app-bar
+      app
+      color="red darken-4"
+      dark
+    >
+      <v-app-bar-nav-icon @click.stop="drawer = !drawer" />
+      <v-toolbar-title>Play Remotely</v-toolbar-title>
+    </v-app-bar>
+
+    <v-content>
+      <v-container fluid>
+        <v-row align="start" justify="center">
+          <v-col>
+            <router-view />
+          </v-col>
+        </v-row>
+      </v-container>
+    </v-content>
+
+    <v-footer
+      color="red darken-4"
+      app
+    >
+      <span class="white--text">footer</span>
+    </v-footer>
+  </v-app>
 </template>
 
 <script>
-import HelloWorld from "./components/HelloWorld.vue";
-
-export default {
-  name: "App",
-  components: {
-    HelloWorld
+  export default {
+    data: () => ({
+      drawer: null,
+    }),
   }
-};
 </script>
-
-<style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
-</style>
